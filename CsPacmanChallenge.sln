@@ -5,10 +5,6 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsPacman", "CsPacman\CsPacman.csproj", "{69658559-35A4-4BE1-B879-179F58A41860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsPacman.Tests", "CsPacman.Tests\CsPacman.Tests.csproj", "{9EF65D6C-B688-478C-BB07-C4B51362168A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacmanBot", "PacmanBot\PacmanBot.csproj", "{D42989B0-83FD-4AF6-8115-B1FE3529931B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{69658559-35A4-4BE1-B879-179F58A41860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69658559-35A4-4BE1-B879-179F58A41860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69658559-35A4-4BE1-B879-179F58A41860}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EF65D6C-B688-478C-BB07-C4B51362168A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EF65D6C-B688-478C-BB07-C4B51362168A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EF65D6C-B688-478C-BB07-C4B51362168A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EF65D6C-B688-478C-BB07-C4B51362168A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D42989B0-83FD-4AF6-8115-B1FE3529931B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D42989B0-83FD-4AF6-8115-B1FE3529931B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D42989B0-83FD-4AF6-8115-B1FE3529931B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D42989B0-83FD-4AF6-8115-B1FE3529931B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

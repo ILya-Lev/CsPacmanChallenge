@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PacmanBot\PacmanBot.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Assets\board.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

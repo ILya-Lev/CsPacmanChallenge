@@ -1,5 +1,4 @@
 using CsPacman.Game;
-using PacmanBot;
 
 namespace CsPacman.Bot;
 
@@ -179,7 +178,7 @@ public class BotPlayer : IPlayer
         bool DoesExist(int x, int y) => _allCells!.ContainsKey((x, y));
 
         bool IsTooClose(int x, int y) => state.ghosts
-            .Any(g => PathAlgorithms.GetManhattanDistance(new Point(x, y), g) < 2);
+            .Any(g => PathAlgorithms.GetManhattanDistance(new Point(x, y), g) < GhostInertia);
     }
 
     private void UpdatePlayersState(StateSnapshot state, Point targetMove)
