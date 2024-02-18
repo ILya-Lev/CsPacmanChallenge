@@ -154,21 +154,32 @@ public class BotPlayer : IPlayer
 
     private Point FindTargetMove(StateSnapshot state, IReadOnlyList<Cell> path)
     {
-        if (path.Count <= 1)
-            return Moves.All.FirstOrDefault(m => _allCells
-                !.ContainsKey((state.player.X + m.X, state.player.Y + m.Y)));
-
-        var nextLocation = path[0].Location;
-        foreach (var move in Moves.All)
+        var targetMove = new Point(0, 0);
+        if (path.Any())
         {
-            var candidate = new Point(state.player.X + move.X, state.player.Y + move.Y);
-            if (candidate.Equals(nextLocation) 
-                && _allCells!.ContainsKey((candidate.X, candidate.Y)))
-                return move;
+            var nextLocation = path[0].Location;
+            foreach (var move in Moves.All)
+            {
+                var candidate = new Point(state.player.X + move.X, state.player.Y + move.Y);
+                if (candidate.Equals(nextLocation))
+                {
+                    targetMove = move;
+                    break;
+                }
+            }
         }
 
-        return Moves.All.FirstOrDefault(m => _allCells
-            !.ContainsKey((state.player.X + m.X, state.player.Y + m.Y)));
+        return new[]{targetMove}.Concat(Moves.All)
+            .Select(move => (move, X: state.player.X + move.X, Y: state.player.Y + move.Y))
+            .Where(m => DoesExist(m.X, m.Y))
+            .Where(m => !IsTooClose(m.X, m.Y))
+            .Select(m => m.move)
+            .FirstOrDefault();
+
+        bool DoesExist(int x, int y) => _allCells!.ContainsKey((x, y));
+
+        bool IsTooClose(int x, int y) => state.ghosts
+            .Any(g => PathAlgorithms.GetManhattanDistance(new Point(x, y), g) < 2);
     }
 
     private void UpdatePlayersState(StateSnapshot state, Point targetMove)
